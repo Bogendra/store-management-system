@@ -1,0 +1,6 @@
+Add the following dependency to your package.json:
+
+"notistack": "^3.0.1"
+
+Then run:
+npm install

@@ -1,0 +1,50 @@
+server:
+  port: 8082  # Different port from auth-service
+
+spring:
+  application:
+    name: inventory-service
+  
+  # Database Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/inventorydb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: validate  # Using Flyway for schema migration
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  
+  # Flyway for Database Migrations
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+# JWT Configuration (shared with Auth Service)
+jwt:
+  secret: "8dGkjm2937fHjdSK8dGhwE5tYbN9jKl0PqRs2X3vZ4aC5bD6fG7hJ8kL9mN0pQ1r"
+  expiration: 3600000 # 1 hour in ms
+
+# OpenAPI/Swagger Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+# Logging Configuration
+logging:
+  level:
+    root: INFO
+    com.store.inventory: DEBUG
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.hibernate.SQL: DEBUG

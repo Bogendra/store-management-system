@@ -1,0 +1,28 @@
+# Java
+/target/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# IDEs
+/.idea/
+/.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node
+/node_modules/
+
+# Docker
+*.pid
+db-data/
+
+# Misc
+.env

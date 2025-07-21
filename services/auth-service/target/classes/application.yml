@@ -1,0 +1,34 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/authdb
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+jwt:
+  secret: "8dGkjm2937fHjdSK8dGhwE5tYbN9jKl0PqRs2X3vZ4aC5bD6fG7hJ8kL9mN0pQ1r"
+  expiration: 3600000 # 1 hour in ms
+
+logging:
+  level:
+    org.springframework: INFO
+
+# Swagger/OpenAPI Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui
+    operations-sorter: method
+    tags-sorter: alpha
+  show-actuator: true

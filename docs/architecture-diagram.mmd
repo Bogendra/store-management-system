@@ -1,0 +1,26 @@
+flowchart TD
+    A[Frontend<br>React + Vite + MUI] --> B[API Gateway<br>Spring Cloud Gateway]
+    B --> C1[Inventory Service<br>Spring Boot]
+    B --> C2[Order Service<br>Spring Boot]
+    B --> C3[Staff Service<br>Spring Boot]
+    B --> C4[Supplier Service<br>Spring Boot]
+    B --> C5[Records Service<br>Spring Boot]
+    B --> C6[Analytics Service<br>Spring Boot]
+    C1 & C2 & C3 & C4 & C5 & C6 --> D[Shared Services]
+    D --> D1[Auth Service<br>Spring Security/JWT/OAuth2]
+    D --> D2[Config Service<br>Spring Cloud Config]
+    D --> D3[Service Discovery<br>Eureka]
+    D --> E[PostgreSQL DB]
+    D --> F[Shared Libs]
+    B --> G[Swagger/OpenAPI<br>API Docs]
+    A --> H[Storybook<br>UI Docs]
+    subgraph Monitoring & DevOps
+        I[Prometheus & Grafana<br>Monitoring]
+        J[ELK Stack<br>Logging]
+        K[Docker Compose<br>Local Dev]
+        L[CI/CD<br>GitHub Actions]
+    end
+    C1 & C2 & C3 & C4 & C5 & C6 --> I
+    C1 & C2 & C3 & C4 & C5 & C6 --> J
+    A & B & C1 & C2 & C3 & C4 & C5 & C6 & D & E --> K
+    K --> L
