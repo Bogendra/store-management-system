@@ -1,0 +1,50 @@
+server:
+  port: ${SERVER_PORT:8082}
+
+spring:
+  application:
+    name: inventory-service
+  
+  # Database Configuration
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/inventorydb}
+    username: ${SPRING_DATASOURCE_USERNAME:postgres}
+    password: ${SPRING_DATASOURCE_PASSWORD:postgres}
+    driver-class-name: org.postgresql.Driver
+  
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_DDL_AUTO:validate}  # Using Flyway for schema migration
+    show-sql: ${SPRING_JPA_SHOW_SQL:true}
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  
+  # Flyway for Database Migrations
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+
+# JWT Configuration (shared with Auth Service)
+jwt:
+  secret: ${JWT_SECRET:8dGkjm2937fHjdSK8dGhwE5tYbN9jKl0PqRs2X3vZ4aC5bD6fG7hJ8kL9mN0pQ1r}
+  expiration: ${JWT_EXPIRATION:3600000}
+
+# OpenAPI/Swagger Configuration
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+
+# Logging Configuration
+logging:
+  level:
+    root: ${LOG_LEVEL_ROOT:INFO}
+    com.store.inventory: ${LOG_LEVEL_APP:DEBUG}
+    org.springframework.web: ${LOG_LEVEL_SPRING_WEB:INFO}
+    org.springframework.security: ${LOG_LEVEL_SPRING_SECURITY:INFO}
+    org.hibernate.SQL: ${LOG_LEVEL_HIBERNATE:DEBUG}

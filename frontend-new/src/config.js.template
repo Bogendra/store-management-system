@@ -1,0 +1,10 @@
+// Configuration settings for the application (Docker version)
+export const API_BASE_URL = '${API_BASE_URL}';
+
+// API endpoints
+export const AUTH_SERVICE_PORT = ${AUTH_SERVICE_PORT};
+export const INVENTORY_SERVICE_PORT = ${INVENTORY_SERVICE_PORT};
+
+// Other configuration settings
+export const TOKEN_KEY = 'token';
+export const USER_INFO_KEY = 'user_info';
