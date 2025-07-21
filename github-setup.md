@@ -6,7 +6,7 @@ Follow these steps to push your project to GitHub:
 
 Open a terminal or command prompt in your project root directory:
 ```bash
-cd c:/Users/bbk04/Desktop/Bogendra/Projects/store-management-system
+cd path/to/Projects/store-management-system
 ```
 
 ## 2. Initialize Git Repository (if not already done)
